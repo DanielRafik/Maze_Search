@@ -6,7 +6,7 @@ import numpy as np
 
 
 
-def find_goal():
+def find_goal(map,length,width):
     for i in range(length):
         for j in range(width):
             if map[i][j] == 2:
@@ -82,11 +82,11 @@ def fill_the_matrix(arrayX,arrayY,map,length,width):
     return  NewXarray,NewYarray   
           
 
-            
+        
 
 
 
-mat_file = scipy.io.loadmat('midterm exam\maze.mat') # returns a dict
+mat_file = scipy.io.loadmat('midterm exam\midterm exam\maze.mat') # returns a dict
 map = mat_file['map']
 # map = map[100:150,100:150]
 length=map.shape[0]
@@ -94,11 +94,28 @@ width=map.shape[1]
 print("the length ",length,"the width",width)
 plt.imshow(map)
 plt.show()
-x=4
-y=149
+x,y=find_goal(map,length,width)
 plt.imshow(map)
 map=np.asarray(map)
 map=map.astype('uint32')
+
+
+
+#######################################################################################################################
+######################################### USER ENTER STARTING #########################################################
+#######################################################################################################################
+map_rows=map.shape[0]
+map_coloumns=map.shape[1]
+
+print("###############################################################################################")
+print("'''''''FOR STARTING POINT''''''''")
+print("Enter a number for rows between 0 and ",map_rows)
+input_rows = int(input())
+
+print("Enter a number for columns between 0 and ",map_coloumns)
+input_columns = int(input())
+print(type(input_columns))
+
 
 plt.show()
 the_filling(x,y,map,length,width)
