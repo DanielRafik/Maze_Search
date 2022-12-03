@@ -158,7 +158,7 @@ def planner(map,start_row,start_col):
 
 
 # read input map
-mat_file = scipy.io.loadmat('.\maze.mat') # returns a dict
+mat_file = scipy.io.loadmat('midterm exam\midterm exam\maze.mat') # returns a dict
 map = mat_file['map']
 
 map=np.asarray(map)
